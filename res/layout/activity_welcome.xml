@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#F0F0F0">
+    
+    <TextView 
+        android:id="@+id/wlc_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="欢迎        同学："
+        android:textSize="16dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"/>
+    <TextView 
+        android:id="@+id/wlc_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="学号：                "
+        android:textSize="16dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"/>
+	<TextView 
+        android:id="@+id/wlc_class"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="班级：          "
+        android:textSize="16dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"/>
+    <LinearLayout 
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center">
+        <Button 
+            android:id="@+id/wlc_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="返回"/>
+        <Button 
+            android:id="@+id/wlc_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确定"
+            android:layout_marginLeft="90dp"/>
+    </LinearLayout>
+</LinearLayout>
