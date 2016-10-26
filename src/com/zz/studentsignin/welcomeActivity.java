@@ -29,6 +29,7 @@ public class welcomeActivity extends Activity {
 	String sname,sclass,user;
 	Button wlc_return,wlc_sure;
 	TextView wlc_name,wlc_number,wlc_class;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,7 +39,6 @@ public class welcomeActivity extends Activity {
 		wlc_class = (TextView) findViewById(R.id.wlc_class);
 		wlc_return = (Button) findViewById(R.id.wlc_return);
 		wlc_sure = (Button) findViewById(R.id.wlc_sure);
-
 		app = (MyApplication) getApplication();
 		StringRequest stringRequest = new StringRequest(Method.POST, dizhi.welcome,
 				new Listener<String>() {

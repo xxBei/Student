@@ -52,7 +52,7 @@ public class loginActivity extends Activity {
 	Button li_return, li_signin;
 	TextView li_xinxi1, li_xinxi2, li_xinxi3, li_chenggong;
 	private static String image;
-	String sname, user, sclass;
+	String sname, user, sclass ,classroom;
 	MyApplication app;
 	Bitmap bitmap;
 	private Uri imageUri;
@@ -79,20 +79,18 @@ public class loginActivity extends Activity {
 		sname = intent.getStringExtra("sname");
 		sclass = intent.getStringExtra("sclass");
 		user = intent.getStringExtra("user");
-		li_xinxi1.setText("学生：" + sname + " ");
-		li_xinxi2.setText("班级：" + sclass + " ");
+		
 		initLocation();
 		app = (MyApplication) getApplication();
-		StringRequest str = new StringRequest(Method.POST, dizhi.welcome, 
+		StringRequest str = new StringRequest(Method.POST, dizhi.cho_classname, 
 				new Listener<String>() {
 
 			@Override
 			public void onResponse(String response) {
 				try {
 					JSONObject json = new JSONObject(response.trim());
-					String classroom =json.getString("classroom");
+					classroom =json.getString("classes");
 					
-					li_xinxi3.setText("教室：" + classroom + " ");
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
@@ -104,6 +102,9 @@ public class loginActivity extends Activity {
 				Log.e("T", error.toString());
 			}
 		});
+		li_xinxi1.setText("学生：" + sname + " ");
+		li_xinxi2.setText("班级：" + sclass + " ");
+		li_xinxi3.setText("教室：" + classroom + " ");
 		app.getRequestQueue().add(str);
 		li_return.setOnClickListener(new OnClickListener() {
 
@@ -267,9 +268,11 @@ public class loginActivity extends Activity {
 	             sb.append(location.getOperators());
 	             sb.append("\ndescribe : ");
 	             sb.append("网络定位成功");
+	             mLocationClient.stop();
 	         } else if (location.getLocType() == BDLocation.TypeOffLineLocation) {// 离线定位结果
 	             sb.append("\ndescribe : ");
 	             sb.append("离线定位成功，离线定位结果也是有效的");
+	             mLocationClient.stop();
 	         } else if (location.getLocType() == BDLocation.TypeServerError) {
 	             sb.append("\ndescribe : ");
 	             sb.append("服务端网络定位失败，可以反馈IMEI号和大体定位时间到loc-bugs@baidu.com，会有人追查原因");
