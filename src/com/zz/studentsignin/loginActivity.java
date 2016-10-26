@@ -87,10 +87,13 @@ public class loginActivity extends Activity {
 
 			@Override
 			public void onResponse(String response) {
+				Log.d("D", response);
 				try {
 					JSONObject json = new JSONObject(response.trim());
-					classroom =json.getString("classes");
-					
+					classroom =json.getString("classroom");
+					li_xinxi1.setText("学生：" + sname + "  ");
+					li_xinxi2.setText("班级：" + sclass + " ");
+					li_xinxi3.setText("教室：" + classroom + " ");
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
@@ -102,9 +105,7 @@ public class loginActivity extends Activity {
 				Log.e("T", error.toString());
 			}
 		});
-		li_xinxi1.setText("学生：" + sname + " ");
-		li_xinxi2.setText("班级：" + sclass + " ");
-		li_xinxi3.setText("教室：" + classroom + " ");
+		
 		app.getRequestQueue().add(str);
 		li_return.setOnClickListener(new OnClickListener() {
 

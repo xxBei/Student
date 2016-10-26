@@ -1,29 +1,24 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.zz.studentsignin.MainActivity"
     android:orientation="vertical"
-    android:background="#F0F0F0" >
-    <RelativeLayout 
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="#E0E0E0">
+    android:background="@drawable/image_file" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView 
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="学生签到"
-        android:textSize="22dp" />
-    
-    </RelativeLayout>
-    
+        android:layout_marginTop="40dp"/>
     <LinearLayout 
+        android:id="@+id/ll"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_centerInParent="true"
         android:layout_gravity="center_vertical">
         <EditText 
             android:id="@+id/number"
@@ -31,7 +26,7 @@
             android:layout_height="wrap_content"
             android:hint="请输入学号"
             android:layout_gravity="center"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="20dp"
             android:lines="1"
             android:maxLength="8"/>
       	<EditText 
@@ -45,11 +40,15 @@
             android:lines="1"
             android:maxLength="10"/>
     </LinearLayout>
-	<Button 
+
+	<Button
 	    android:id="@+id/denglu"
-	    android:layout_width="wrap_content"
+	    android:layout_width="280dp"
 	    android:layout_height="wrap_content"
-	    android:text="登   录"
-	    android:layout_marginLeft="200dp"
-	    android:layout_marginTop="20dp"/>
-</LinearLayout>
+	    android:layout_below="@+id/ll"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="35dp"
+	    android:background="@drawable/buttonyj"
+	    android:text="登   录" />
+
+</RelativeLayout>
